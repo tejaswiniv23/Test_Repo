@@ -6,13 +6,14 @@ import org.springframework.stereotype.Component;
 
 import com.springbootrest.restDemo.Entity.Employee;
 
-@Component
 public interface EmployeeService {
 	 
 	 	Employee createEmployee(Employee employeeRequest);
 	    Employee updateEmployee(Integer employeeId, Employee employeeRequest);
 	    void deleteEmployee(Integer employeeId);
+	    Long getEmpCount();
 	    Employee getASingleEmployee(Integer employeeId);
 	    List<Employee> getAllEmployee();
+	    void deleteAllEmployee();
 
 }
