@@ -1,4 +1,4 @@
-package com.springbootrest.restDemo.Entity;
+package com.springbootrest.restDemo.dto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,11 +11,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@AllArgsConstructor
+@jakarta.persistence.Entity
 @Table(name = "employee")
-public class Employee {
+public class EmployeeRequestDTO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,5 +30,5 @@ public class Employee {
 	
 	@Column(name = "emp_Mobile")
 	private Integer empMobNo;
-	
+
 }
