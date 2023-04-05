@@ -15,5 +15,7 @@ public interface EmployeeService {
 	    Employee getASingleEmployee(Integer employeeId);
 	    List<Employee> getAllEmployee();
 	    void deleteAllEmployee();
-
+	    Employee getEmployeeByIdAndName(Integer employeeId , String employeeName );
+	    List<Employee> getAllEmployeesOrderByDOB();
+	    List<Employee> getAllEmployeesOrderByJoiningDate();
 }

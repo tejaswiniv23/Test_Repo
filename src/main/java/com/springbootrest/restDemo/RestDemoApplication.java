@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import jakarta.validation.Validator;
+
 @SpringBootApplication
 public class RestDemoApplication {
 
@@ -16,7 +18,7 @@ public class RestDemoApplication {
 	public ModelMapper modelMapper() {
 		return new ModelMapper();
 	}
-
+	
 	public static void main(String[] args) {
 		logger.info("Running Spring boot application");
 		SpringApplication.run(RestDemoApplication.class, args);

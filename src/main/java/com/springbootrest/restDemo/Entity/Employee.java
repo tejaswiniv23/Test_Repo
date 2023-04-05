@@ -1,5 +1,14 @@
 package com.springbootrest.restDemo.Entity;
 
+import java.util.Date;
+
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.ParamDef;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,6 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "employee")
+@SQLDelete(sql = "UPDATE employee SET deleted = true WHERE emp_Id=?")
 public class Employee {
 	
 	@Id
@@ -31,4 +41,13 @@ public class Employee {
 	@Column(name = "emp_Mobile")
 	private Integer empMobNo;
 	
+	@Column(name = "emp_DOB")
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	private Date empDOB;
+	
+	@Column(name = "emp_Joining")
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	private Date empJoiningDate;
+	
+	private boolean deleted = Boolean.FALSE;
 }

@@ -1,11 +1,11 @@
 package com.springbootrest.restDemo.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,22 +13,26 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@jakarta.persistence.Entity
-@Table(name = "employee")
 public class EmployeeRequestDTO {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "emp_Id")
 	private Integer empId ;
 	
-	@Column(name = "emp_Name")
+	@NotEmpty
 	private String empName;
 	
-	@Column(name = "emp_Address")
+	@NotEmpty
+	
 	private String empAdress;
 	
-	@Column(name = "emp_Mobile")
+	@NotNull(message="Mobile No sholud not be blank")
 	private Integer empMobNo;
+	
+	@NotNull(message="Date of  birth should not be blank")
+	@JsonFormat(pattern="dd/MM/yyyy")
+	private Date empDOB;
+	
+	@NotNull(message="Employee joining date should not be blank")
+	@JsonFormat(pattern="dd/MM/yyyy")
+	private Date empJoiningDate;
 
 }
